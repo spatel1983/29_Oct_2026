@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10251d">
+    <title>Premier League Monitor</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body data-default-scope="season" data-default-status="All" data-default-report="csv" data-favorite-team="">
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">ESPN · ENGLISH PREMIER LEAGUE</p>
+        <h1>Match centre</h1>
+        <p class="intro">Browse season fixtures and results, or focus on a single matchday.</p>
+      </header>
+
+      <section class="panel controls" aria-label="Match filters">
+        <label>
+          <span>Season cutoff / match date</span>
+          <input id="match-date" type="date">
+        </label>
+        <label>
+          <span>Match range</span>
+          <select id="scope">
+            <option value="season">Season to date</option>
+            <option value="day">Single date</option>
+          </select>
+        </label>
+        <label>
+          <span>Team search</span>
+          <input id="team-search" type="search" placeholder="Search either team">
+        </label>
+        <label>
+          <span>Fan bias</span>
+          <select id="favorite-team" disabled>
+            <option value="">No bias</option>
+          </select>
+        </label>
+        <label>
+          <span>Match type</span>
+          <select id="status-filter">
+            <option>All</option>
+            <option>Scheduled</option>
+            <option>Played</option>
+            <option>Live</option>
+          </select>
+        </label>
+        <button id="retrieve" class="button button-primary" type="button">Retrieve matches</button>
+      </section>
+
+      <section class="summary-row" aria-live="polite">
+        <p id="summary">Choose a date and retrieve matches.</p>
+        <div class="report-actions">
+          <label class="report-format">
+            <span>Report format</span>
+            <select id="report-format">
+              <option value="csv">CSV</option>
+              <option value="json">JSON</option>
+            </select>
+          </label>
+          <button id="download-report" class="button button-secondary" type="button" disabled>Download report</button>
+        </div>
+      </section>
+
+      <section class="panel table-panel" aria-label="Matches">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Status</th>
+                <th scope="col">Home</th>
+                <th scope="col">Score</th>
+                <th scope="col">Away</th>
+                <th scope="col">Kickoff</th>
+                <th scope="col">Venue</th>
+                <th scope="col">Comment</th>
+              </tr>
+            </thead>
+            <tbody id="matches">
+              <tr><td class="empty" colspan="7">No matches loaded yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer>
+        <span>Data provided by ESPN. Match information may change.</span>
+        <span id="last-updated"></span>
+      </footer>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

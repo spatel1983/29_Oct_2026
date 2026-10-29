@@ -1,0 +1,16 @@
+{
+  "endpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+  "timeout_seconds": 15,
+  "max_goal_difference_for_alert": 1,
+  "log_level": "INFO",
+  "web_host": "127.0.0.1",
+  "web_port": 8000,
+  "open_browser": true,
+  "default_match_scope": "season",
+  "default_status_filter": "All",
+  "default_report_format": "csv",
+  "favorite_team": "Liverpool",
+  "log_file": "logs/football_monitor.log",
+  "log_max_bytes": 1000000,
+  "log_backup_count": 3
+}
